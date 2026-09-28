@@ -26,4 +26,23 @@ public class EmpleadoControlador {
     public EmpleadoBase buscarEmpleado(String cedula) {
         return repositorio.buscar(cedula);
     }
+    public boolean actualizarEmpleado(EmpleadoBase empleado) {
+        return repositorio.actualizar(empleado);
+    }
+
+    public boolean eliminarEmpleado(String cedula) {
+        return repositorio.eliminar(cedula);
+    }
+
+    public ArrayList<EmpleadoBase> listarEmpleados() {
+        return repositorio.listarTodos();
+    }
+
+    public double calcularTotalNomina() {
+        double total = 0;
+        for (EmpleadoBase emp : repositorio.listarTodos()) {
+            total += emp.calcularSalarioTotal();
+        }
+        return total;
+    }
 }
