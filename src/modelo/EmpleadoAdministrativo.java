@@ -7,4 +7,18 @@ public class EmpleadoAdministrativo extends EmpleadoBase {
         super(cedula, nombre, salarioBase);
         this.bonificacion = bonificacion;
     }
+    public double getBonificacion() {
+        return bonificacion;
+    }
+
+    @Override
+    public double calcularSalarioTotal() {
+        // Reutiliza el cálculo del padre y le suma la bonificación
+        return super.calcularSalarioTotal() + bonificacion;
+    }
+
+    @Override
+    public String getTipo() {
+        return "Administrativo";
+    }
 }
