@@ -1,6 +1,6 @@
 package modelo;
 
-public abstract class EmpleadoBase {
+public  class EmpleadoBase {
     private String cedula;
     private String nombre;
     private double salarioBase;
@@ -32,6 +32,13 @@ public abstract class EmpleadoBase {
         } else {
             this.salarioBase = 0;
         }
+    }
+    public double calcularSalarioTotal() {
+        return salarioBase;
+    }
+
+    public String getTipo() {
+        return "Operativo";
     }
 
 }
