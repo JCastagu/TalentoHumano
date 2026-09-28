@@ -36,9 +36,13 @@ public class VentanaEmpleados extends JFrame {
         setLayout(new BorderLayout(10, 10));
 
         add(construirFormulario(), BorderLayout.NORTH);
+        add(construirTabla(), BorderLayout.CENTER);
 
         lblResumen.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
         add(lblResumen, BorderLayout.SOUTH);
+
+        conectarEventos();
+        refrescarTabla();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(780, 540);
@@ -80,6 +84,7 @@ public class VentanaEmpleados extends JFrame {
     private String tipoSeleccionado() {
         return (String) cmbTipo.getSelectedItem();
     }
+
     private JScrollPane construirTabla() {
         String[] columnas = {"Cédula", "Nombre", "Tipo", "Salario base", "Salario total"};
         datosTabla = new DefaultTableModel(columnas, 0) {
@@ -114,6 +119,7 @@ public class VentanaEmpleados extends JFrame {
     private String formatoPesos(double valor) {
         return String.format("$ %,.0f", valor);
     }
+
     private void conectarEventos() {
         cmbTipo.addActionListener(e -> {
             boolean esAdministrativo = tipoSeleccionado().equals("Administrativo");
