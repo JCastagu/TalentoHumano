@@ -10,4 +10,15 @@ public class RepositorioEmpleados {
     public EmpleadoBase buscarPorCedula(String cedula) {
         return empleados.get(cedula);
     }
+    public boolean eliminar(String cedula) {
+        return empleados.remove(cedula) != null;
+    }
+
+    public java.util.Collection<EmpleadoBase> obtenerTodos() {
+        return empleados.values();
+    }
+
+    public boolean existeCedula(String cedula) {
+        return empleados.containsKey(cedula);
+    }
 }
